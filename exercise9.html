@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9: Kiểm tra số nguyên tố</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 9: Kiểm tra số nguyên tố</h3>
+        <p>Viết hàm kiểm tra một số có phải số nguyên tố không.</p>
+        <textarea id="code9" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample9')">Xem code mẫu</button>
+            <button onclick="showSample('alt9_1')">Cách làm 1</button>
+            <button onclick="showSample('alt9_2')">Cách làm 2</button>
+            <button onclick="showSample('alt9_3')">Cách làm 3</button>
+        </div>
+        <div id="sample9" class="sample-code">
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+n = int(input("Nhập một số: "))
+if is_prime(n):
+    print(f"{n} là số nguyên tố")
+else:
+    print(f"{n} không phải số nguyên tố")
+        </div>
+        <div id="alt9_1" class="sample-code" style="display:none;">
+# Cách 1: Kiểm tra đến n/2
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n // 2 + 1):
+        if n % i == 0:
+            return False
+    return True
+
+n = int(input("Nhập một số: "))
+if is_prime(n):
+    print(f"{n} là số nguyên tố")
+else:
+    print(f"{n} không phải số nguyên tố")
+        </div>
+        <div id="alt9_2" class="sample-code" style="display:none;">
+# Cách 2: Kiểm tra chỉ các số lẻ sau 2
+def is_prime(n):
+    if n < 2:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    
+    # Kiểm tra các số lẻ từ 3 đến căn bậc hai của n
+    for i in range(3, int(n ** 0.5) + 1, 2):
+        if n % i == 0:
+            return False
+    return True
+
+n = int(input("Nhập một số: "))
+if is_prime(n):
+    print(f"{n} là số nguyên tố")
+else:
+    print(f"{n} không phải số nguyên tố")
+        </div>
+        <div id="alt9_3" class="sample-code" style="display:none;">
+# Cách 3: Không sử dụng hàm, kiểm tra trực tiếp
+n = int(input("Nhập một số: "))
+
+is_prime = True
+if n < 2:
+    is_prime = False
+else:
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            is_prime = False
+            break
+
+if is_prime:
+    print(f"{n} là số nguyên tố")
+else:
+    print(f"{n} không phải số nguyên tố")
+        </div>
+    </div>
+    <p><a href="index.html" class="back-btn">Quay lại danh sách bài tập</a></p>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

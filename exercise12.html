@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 12: Tìm số nhỏ nhất</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 12: Tìm số nhỏ nhất</h3>
+        <p>Viết chương trình tìm số nhỏ nhất trong danh sách 3 số người dùng nhập.</p>
+        <textarea id="code12" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample12')">Xem code mẫu</button>
+            <button onclicsk="showSample('alt12_1')">Cách làm 1</button>
+            <button onclick="showSample('alt12_2')">Cách làm 2</button>
+            <button onclick="showSample('alt12_3')">Cách làm 3</button>
+        </div>
+        <div id="sample12" class="sample-code">
+lst = []
+for i in range(3):
+    num = int(input(f"Nhập số thứ {i+1}: "))
+    lst.append(num)
+print("Số nhỏ nhất là:", min(lst))
+        </div>
+        <div id="alt12_1" class="sample-code" style="display:none;">
+# Cách 1: So sánh trực tiếp
+a = int(input("Nhập số thứ nhất: "))
+b = int(input("Nhập số thứ hai: "))
+c = int(input("Nhập số thứ ba: "))
+
+min_num = a
+if b < min_num:
+    min_num = b
+if c < min_num:
+    min_num = c
+
+print("Số nhỏ nhất là:", min_num)
+        </div>
+        <div id="alt12_2" class="sample-code" style="display:none;">
+# Cách 2: Sử dụng hàm min() với nhiều đối số
+a = int(input("Nhập số thứ nhất: "))
+b = int(input("Nhập số thứ hai: "))
+c = int(input("Nhập số thứ ba: "))
+
+min_num = min(a, b, c)
+print("Số nhỏ nhất là:", min_num)
+        </div>
+        <div id="alt12_3" class="sample-code" style="display:none;">
+# Cách 3: Nhập tất cả số cùng một lúc và tìm min
+numbers = input("Nhập 3 số, cách nhau bởi dấu cách: ")
+num_list = [int(x) for x in numbers.split()]
+
+if len(num_list) == 3:
+    print("Số nhỏ nhất là:", min(num_list))
+else:
+    print("Vui lòng nhập đúng 3 số.")
+        </div>
+    </div>
+    <a href="index.html" class="back-btn">Quay lại danh sách bài tập</a>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

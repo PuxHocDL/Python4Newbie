@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 11: Đếm số chẵn</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 11: Đếm số chẵn</h3>
+        <p>Viết chương trình đếm số lượng số chẵn trong danh sách 5 số người dùng nhập.</p>
+        <textarea id="code11" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample11')">Xem code mẫu</button>
+            <button onclick="showSample('alt1')">Cách làm 1</button>
+            <button onclick="showSample('alt2')">Cách làm 2</button>
+            <button onclick="showSample('alt3')">Cách làm 3</button>
+        </div>
+        
+        <!-- Original sample solution -->
+        <div id="sample11" class="sample-code">
+count = 0
+for i in range(5):
+    num = int(input(f"Nhập số thứ {i+1}: "))
+    if num % 2 == 0:
+        count += 1
+print("Số lượng số chẵn:", count)
+        </div>
+        
+        <!-- Alternative approach 1: Using a list to store numbers -->
+        <div id="alt1" class="sample-code" style="display:none;">
+# Cách 1: Sử dụng danh sách để lưu các số
+numbers = []
+for i in range(5):
+    num = int(input(f"Nhập số thứ {i+1}: "))
+    numbers.append(num)
+
+# Đếm số chẵn trong danh sách
+count = 0
+for num in numbers:
+    if num % 2 == 0:
+        count += 1
+        
+print("Số lượng số chẵn:", count)
+        </div>
+        
+        <!-- Alternative approach 2: Using while loop -->
+        <div id="alt2" class="sample-code" style="display:none;">
+# Cách 2: Sử dụng vòng lặp while
+count = 0
+i = 0
+while i < 5:
+    num = int(input(f"Nhập số thứ {i+1}: "))
+    if num % 2 == 0:
+        count += 1
+    i += 1
+    
+print("Số lượng số chẵn:", count)
+        </div>
+        
+        <!-- Alternative approach 3: Using list comprehension -->
+        <div id="alt3" class="sample-code" style="display:none;">
+# Cách 3: Nhập tất cả số rồi đếm sau
+# Nhập 5 số
+numbers = []
+for i in range(5):
+    num = int(input(f"Nhập số thứ {i+1}: "))
+    numbers.append(num)
+
+# Sử dụng list comprehension để đếm số chẵn
+even_count = sum(1 for num in numbers if num % 2 == 0)
+print("Số lượng số chẵn:", even_count)
+        </div>
+    </div>
+    <a href="index.html" class="back-btn">Quay lại danh sách bài tập</a>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

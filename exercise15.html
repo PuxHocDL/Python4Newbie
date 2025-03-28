@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 15: Đếm số nguyên âm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 15: Đếm số nguyên âm</h3>
+        <p>Viết chương trình đếm số nguyên âm (a, e, i, o, u) trong chuỗi người dùng nhập.</p>
+        <textarea id="code15" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample15')">Xem code mẫu</button>
+            <button onclick="showSample('alt15_1')">Cách làm 1</button>
+            <button onclick="showSample('alt15_2')">Cách làm 2</button>
+            <button onclick="showSample('alt15_3')">Cách làm 3</button>
+        </div>
+        <div id="sample15" class="sample-code">
+s = input("Nhập chuỗi: ")
+vowels = "aeiou"
+count = 0
+for char in s.lower():
+    if char in vowels:
+        count += 1
+print("Số nguyên âm:", count)
+        </div>
+        <div id="alt15_1" class="sample-code" style="display:none;">
+# Cách 1: Đếm từng nguyên âm riêng biệt
+s = input("Nhập chuỗi: ")
+s = s.lower()
+count_a = s.count('a')
+count_e = s.count('e')
+count_i = s.count('i')
+count_o = s.count('o')
+count_u = s.count('u')
+total = count_a + count_e + count_i + count_o + count_u
+print("Số nguyên âm:", total)
+        </div>
+        <div id="alt15_2" class="sample-code" style="display:none;">
+# Cách 2: Sử dụng list comprehension
+s = input("Nhập chuỗi: ")
+vowels = "aeiou"
+count = sum(1 for char in s.lower() if char in vowels)
+print("Số nguyên âm:", count)
+        </div>
+        <div id="alt15_3" class="sample-code" style="display:none;">
+# Cách 3: Sử dụng từ điển để đếm chi tiết
+s = input("Nhập chuỗi: ")
+vowels = {'a': 0, 'e': 0, 'i': 0, 'o': 0, 'u': 0}
+
+for char in s.lower():
+    if char in vowels:
+        vowels[char] += 1
+
+total = sum(vowels.values())
+print("Số nguyên âm:", total)
+print("Chi tiết:")
+for vowel, count in vowels.items():
+    if count > 0:
+        print(f"- Nguyên âm '{vowel}': {count}")
+        </div>
+    </div>
+    <a href="index.html" class="back-btn">Quay lại danh sách bài tập</a>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

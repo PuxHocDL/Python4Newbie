@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 17: Kiểm tra số chia hết cho 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 17: Kiểm tra số chia hết cho 3</h3>
+        <p>Viết chương trình kiểm tra một số người dùng nhập có chia hết cho 3 không.</p>
+        <textarea id="code17" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample17')">Xem code mẫu</button>
+            <button onclick="showSample('alt17_1')">Cách làm 1</button>
+            <button onclick="showSample('alt17_2')">Cách làm 2</button>
+            <button onclick="showSample('alt17_3')">Cách làm 3</button>
+        </div>
+        <div id="sample17" class="sample-code">
+n = int(input("Nhập một số: "))
+if n % 3 == 0:
+    print(f"{n} chia hết cho 3")
+else:
+    print(f"{n} không chia hết cho 3")
+        </div>
+        <div id="alt17_1" class="sample-code" style="display:none;">
+# Cách 1: Sử dụng toán học - tổng các chữ số chia hết cho 3
+n = input("Nhập một số: ")
+digit_sum = sum(int(digit) for digit in n)
+
+if digit_sum % 3 == 0:
+    print(f"{n} chia hết cho 3")
+else:
+    print(f"{n} không chia hết cho 3")
+        </div>
+        <div id="alt17_2" class="sample-code" style="display:none;">
+# Cách 2: Sử dụng hàm để kiểm tra
+def is_divisible_by_3(num):
+    return num % 3 == 0
+
+n = int(input("Nhập một số: "))
+if is_divisible_by_3(n):
+    print(f"{n} chia hết cho 3")
+else:
+    print(f"{n} không chia hết cho 3")
+        </div>
+        <div id="alt17_3" class="sample-code" style="display:none;">
+# Cách 3: Sử dụng phép chia nguyên và phần dư
+n = int(input("Nhập một số: "))
+quotient = n // 3
+remainder = n - (quotient * 3)
+
+if remainder == 0:
+    print(f"{n} chia hết cho 3")
+    print(f"{n} ÷ 3 = {quotient}")
+else:
+    print(f"{n} không chia hết cho 3")
+    print(f"{n} ÷ 3 = {quotient} dư {remainder}")
+        </div>
+    </div>
+    <a href="index.html" class="back-btn">Quay lại danh sách bài tập</a>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

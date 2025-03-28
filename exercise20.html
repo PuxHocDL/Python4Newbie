@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 20: Tìm số lớn thứ hai</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 20: Tìm số lớn thứ hai</h3>
+        <p>Viết chương trình tìm số lớn thứ hai trong danh sách 5 số người dùng nhập.</p>
+        <textarea id="code20" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample20')">Xem code mẫu</button>
+            <button onclick="showSample('alt20_1')">Cách làm 1</button>
+            <button onclick="showSample('alt20_2')">Cách làm 2</button>
+            <button onclick="showSample('alt20_3')">Cách làm 3</button>
+        </div>
+        <div id="sample20" class="sample-code">
+lst = []
+for i in range(5):
+    num = int(input(f"Nhập số thứ {i+1}: "))
+    lst.append(num)
+lst.sort()
+print("Số lớn thứ hai là:", lst[-2])
+        </div>
+        <div id="alt20_1" class="sample-code" style="display:none;">
+# Cách 1: Sử dụng hàm max() hai lần
+lst = []
+for i in range(5):
+    num = int(input(f"Nhập số thứ {i+1}: "))
+    lst.append(num)
+
+max_num = max(lst)
+lst.remove(max_num)
+second_max = max(lst)
+print("Số lớn thứ hai là:", second_max)
+        </div>
+        <div id="alt20_2" class="sample-code" style="display:none;">
+# Cách 2: Không sử dụng hàm có sẵn
+lst = []
+for i in range(5):
+    num = int(input(f"Nhập số thứ {i+1}: "))
+    lst.append(num)
+
+max_num = float('-inf')
+second_max = float('-inf')
+
+for num in lst:
+    if num > max_num:
+        second_max = max_num
+        max_num = num
+    elif num > second_max and num != max_num:
+        second_max = num
+
+print("Số lớn thứ hai là:", second_max)
+        </div>
+        <div id="alt20_3" class="sample-code" style="display:none;">
+# Cách 3: Sử dụng set để loại bỏ trùng lặp
+lst = []
+for i in range(5):
+    num = int(input(f"Nhập số thứ {i+1}: "))
+    lst.append(num)
+
+# Chuyển sang set để loại bỏ trùng lặp, rồi chuyển lại thành list và sắp xếp
+unique_lst = list(set(lst))
+unique_lst.sort()
+
+if len(unique_lst) >= 2:
+    print("Số lớn thứ hai là:", unique_lst[-2])
+else:
+    print("Không có số lớn thứ hai (tất cả số đều giống nhau)")
+        </div>
+    </div>
+    <a href="index.html" class="back-btn">Quay lại danh sách bài tập</a>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@300;400&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f5ff;
+    color: #5b6e88;
+}
+
+header {
+    background: #b5c6ff;
+    color: #ffffff;
+    padding: 1.8rem 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    color: #635c7d;
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 2.5rem auto;
+    max-width: 700px;
+}
+
+ul li {
+    margin: 15px 0;
+    transition: transform 0.3s ease;
+}
+
+ul li a {
+    display: block;
+    padding: 16px 20px;
+    background-color: #ffffff;
+    color: #635c7d;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    border-left: 4px solid #b5c6ff;
+    letter-spacing: 0.3px;
+}
+
+ul li a:hover {
+    background-color: #fff9fc;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #ffb5e8;
+}
+
+footer {
+    text-align: center;
+    padding: 1.8rem 0;
+    background: #f2eaff;
+    color: #635c7d;
+    margin-top: 3rem;
+    border-top: 1px solid #e6deff;
+    font-size: 0.95em;
+    letter-spacing: 0.5px;
+}
+
+.exercise {
+    max-width: 750px;
+    margin: 0 auto 35px auto;
+    padding: 35px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid #cbb5ff;
+}
+
+.exercise:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(203, 181, 255, 0.15);
+}
+
+h3 {
+    font-family: 'Playfair Display', serif;
+    color: #a18cd1;
+    margin-bottom: 18px;
+    font-size: 1.6em;
+    font-weight: 600;
+    border-bottom: 2px solid #f6f0ff;
+    padding-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+p {
+    line-height: 1.8;
+    color: #5b6e88;
+    margin-bottom: 22px;
+    font-size: 1.05em;
+    letter-spacing: 0.2px;
+}
+
+textarea {
+    width: 100%;
+    height: 140px;
+    border: 2px solid #e6deff;
+    padding: 15px 18px;
+    margin-top: 15px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    border-radius: 10px;
+    background-color: #f9faff;
+    resize: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    color: #2c3e50;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #b5c6ff;
+    box-shadow: 0 0 12px rgba(181, 198, 255, 0.25);
+    background-color: #ffffff;
+}
+
+.sample-code {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 150px;
+    border: 2px solid #e6deff;
+    padding: 18px;
+    margin-top: 22px;
+    background-color: #f9faff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    border-radius: 10px;
+    display: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-x: hidden;
+    color: #2c3e50;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.sample-code.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sample-code.hide {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+button, .back-btn {
+    margin-top: 18px;
+    padding: 12px 24px;
+    background: #a18cd1;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(161, 140, 209, 0.25);
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+button:hover, .back-btn:hover {
+    background: #b5c6ff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(181, 198, 255, 0.35);
+}
+
+button:active, .back-btn:active {
+    transform: scale(0.97);
+}
+
+.back-btn {
+    display: block;
+    text-align: center;
+    margin: 35px auto;
+    text-decoration: none;
+    width: fit-content;
+}

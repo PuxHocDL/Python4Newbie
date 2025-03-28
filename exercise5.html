@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5: Tìm số lớn nhất</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 5: Tìm số lớn nhất</h3>
+        <p>Tìm số lớn nhất trong danh sách 4 số.</p>
+        <textarea id="code5" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample5')">Xem code mẫu</button>
+            <button onclick="showSample('alt1')">Cách làm 1</button>
+            <button onclick="showSample('alt2')">Cách làm 2</button>
+            <button onclick="showSample('alt3')">Cách làm 3</button>
+        </div>
+        
+        <!-- Original sample solution -->
+        <div id="sample5" class="sample-code">
+def find_max(lst):
+    return max(lst)
+lst = []
+for i in range(4):
+    num = int(input(f"Nhập số {i+1}: "))
+    lst.append(num)
+print("Số lớn nhất là:", find_max(lst))
+        </div>
+        
+        <!-- Alternative approach 1: Manual comparison -->
+        <div id="alt1" class="sample-code" style="display:none;">
+# Cách 1: So sánh thủ công
+lst = []
+for i in range(4):
+    num = int(input(f"Nhập số {i+1}: "))
+    lst.append(num)
+
+max_num = lst[0]
+for num in lst:
+    if num > max_num:
+        max_num = num
+
+print("Số lớn nhất là:", max_num)
+        </div>
+        
+        <!-- Alternative approach 2: Using sorted -->
+        <div id="alt2" class="sample-code" style="display:none;">
+# Cách 2: Sử dụng sorted
+lst = []
+for i in range(4):
+    num = int(input(f"Nhập số {i+1}: "))
+    lst.append(num)
+
+# Sắp xếp và lấy số cuối cùng (lớn nhất)
+max_num = sorted(lst)[-1]
+print("Số lớn nhất là:", max_num)
+        </div>
+        
+        <!-- Alternative approach 3: Using list comprehension and max -->
+        <div id="alt3" class="sample-code" style="display:none;">
+# Cách 3: Sử dụng list comprehension và max
+numbers = [int(input(f"Nhập số {i+1}: ")) for i in range(4)]
+max_num = max(numbers)
+print("Số lớn nhất là:", max_num)
+        </div>
+    </div>
+    <p><a href="index.html" class="back-btn">Quay lại danh sách bài tập</a></p>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 19: Tạo chuỗi lặp lại</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 19: Tạo chuỗi lặp lại</h3>
+        <p>Viết chương trình lặp lại một chuỗi người dùng nhập đúng n lần (n cũng do người dùng nhập).</p>
+        <textarea id="code19" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample19')">Xem code mẫu</button>
+            <button onclick="showSample('alt19_1')">Cách làm 1</button>
+            <button onclick="showSample('alt19_2')">Cách làm 2</button>
+            <button onclick="showSample('alt19_3')">Cách làm 3</button>
+        </div>
+        <div id="sample19" class="sample-code">
+s = input("Nhập chuỗi: ")
+n = int(input("Nhập số lần lặp: "))
+print(s * n)
+        </div>
+        <div id="alt19_1" class="sample-code" style="display:none;">
+# Cách 1: Sử dụng vòng lặp for
+s = input("Nhập chuỗi: ")
+n = int(input("Nhập số lần lặp: "))
+result = ""
+for i in range(n):
+    result += s
+print(result)
+        </div>
+        <div id="alt19_2" class="sample-code" style="display:none;">
+# Cách 2: Sử dụng hàm repeat và join
+def repeat_string(string, times):
+    return "".join([string] * times)
+
+s = input("Nhập chuỗi: ")
+n = int(input("Nhập số lần lặp: "))
+print(repeat_string(s, n))
+        </div>
+        <div id="alt19_3" class="sample-code" style="display:none;">
+# Cách 3: Sử dụng list comprehension và join
+s = input("Nhập chuỗi: ")
+n = int(input("Nhập số lần lặp: "))
+result = "".join([s for _ in range(n)])
+print(result)
+        </div>
+    </div>
+    <a href="index.html" class="back-btn">Quay lại danh sách bài tập</a>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

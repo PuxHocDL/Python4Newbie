@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8: Đảo ngược chuỗi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 8: Đảo ngược chuỗi</h3>
+        <p>Viết chương trình đảo ngược chuỗi người dùng nhập.</p>
+        <textarea id="code8" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample8')">Xem code mẫu</button>
+            <button onclick="showSample('alt8_1')">Cách làm 1</button>
+            <button onclick="showSample('alt8_2')">Cách làm 2</button>
+            <button onclick="showSample('alt8_3')">Cách làm 3</button>
+        </div>
+        <div id="sample8" class="sample-code">
+s = input("Nhập chuỗi: ")
+print("Chuỗi đảo ngược:", s[::-1])
+        </div>
+        <div id="alt8_1" class="sample-code" style="display:none;">
+# Cách 1: Sử dụng vòng lặp for
+s = input("Nhập chuỗi: ")
+reversed_s = ""
+for char in s:
+    reversed_s = char + reversed_s
+print("Chuỗi đảo ngược:", reversed_s)
+        </div>
+        <div id="alt8_2" class="sample-code" style="display:none;">
+# Cách 2: Sử dụng hàm reversed() và join()
+s = input("Nhập chuỗi: ")
+reversed_s = "".join(reversed(s))
+print("Chuỗi đảo ngược:", reversed_s)
+        </div>
+        <div id="alt8_3" class="sample-code" style="display:none;">
+# Cách 3: Chuyển thành list, đảo ngược và join
+s = input("Nhập chuỗi: ")
+char_list = list(s)
+char_list.reverse()
+reversed_s = "".join(char_list)
+print("Chuỗi đảo ngược:", reversed_s)
+        </div>
+    </div>
+    <p><a href="index.html" class="back-btn">Quay lại danh sách bài tập</a></p>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

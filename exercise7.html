@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7: Tính tổng dãy số</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 7: Tính tổng dãy số</h3>
+        <p>Tính tổng các số từ 1 đến n bằng đệ quy.</p>
+        <textarea id="code7" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample7')">Xem code mẫu</button>
+            <button onclick="showSample('alt7_1')">Cách làm 1</button>
+            <button onclick="showSample('alt7_2')">Cách làm 2</button>
+            <button onclick="showSample('alt7_3')">Cách làm 3</button>
+        </div>
+        <div id="sample7" class="sample-code">
+def sum_series(n):
+    if n == 1:
+        return 1
+    return n + sum_series(n-1)
+n = int(input("Nhập n: "))
+print(f"Tổng từ 1 đến {n} là:", sum_series(n))
+        </div>
+        <div id="alt7_1" class="sample-code" style="display:none;">
+# Cách 1: Sử dụng vòng lặp for
+n = int(input("Nhập n: "))
+total = 0
+for i in range(1, n + 1):
+    total += i
+print(f"Tổng từ 1 đến {n} là:", total)
+        </div>
+        <div id="alt7_2" class="sample-code" style="display:none;">
+# Cách 2: Sử dụng công thức toán học
+n = int(input("Nhập n: "))
+total = n * (n + 1) // 2
+print(f"Tổng từ 1 đến {n} là:", total)
+        </div>
+        <div id="alt7_3" class="sample-code" style="display:none;">
+# Cách 3: Sử dụng hàm sum() và range()
+n = int(input("Nhập n: "))
+total = sum(range(1, n + 1))
+print(f"Tổng từ 1 đến {n} là:", total)
+        </div>
+    </div>
+    <p><a href="index.html" class="back-btn">Quay lại danh sách bài tập</a></p>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

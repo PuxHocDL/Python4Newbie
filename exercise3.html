@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3: Ghi danh sách số</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 3: Ghi danh sách số</h3>
+        <p>Nhập 3 số và in danh sách (mô phỏng ghi file).</p>
+        <textarea id="code3" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample3')">Xem code mẫu</button>
+            <button onclick="showSample('alt1')">Cách làm 1</button>
+            <button onclick="showSample('alt2')">Cách làm 2</button>
+            <button onclick="showSample('alt3')">Cách làm 3</button>
+        </div>
+        
+        <!-- Original sample solution -->
+        <div id="sample3" class="sample-code">
+numbers = []
+for i in range(3):
+    num = int(input(f"Nhập số {i+1}: "))
+    numbers.append(num)
+print("Danh sách đã nhập:", numbers)
+        </div>
+        
+        <!-- Alternative approach 1: Using list comprehension -->
+        <div id="alt1" class="sample-code" style="display:none;">
+# Cách 1: Sử dụng list comprehension
+numbers = [int(input(f"Nhập số {i+1}: ")) for i in range(3)]
+print("Danh sách đã nhập:", numbers)
+        </div>
+        
+        <!-- Alternative approach 2: Using while loop -->
+        <div id="alt2" class="sample-code" style="display:none;">
+# Cách 2: Sử dụng vòng lặp while
+numbers = []
+i = 0
+while i < 3:
+    num = int(input(f"Nhập số {i+1}: "))
+    numbers.append(num)
+    i += 1
+print("Danh sách đã nhập:", numbers)
+        </div>
+        
+        <!-- Alternative approach 3: Using map and lambda -->
+        <div id="alt3" class="sample-code" style="display:none;">
+# Cách 3: Nhập cùng lúc nhiều số và chuyển thành danh sách
+print("Nhập 3 số, cách nhau bởi dấu cách:")
+numbers = list(map(int, input().split()))[:3]  # Giới hạn 3 số
+print("Danh sách đã nhập:", numbers)
+        </div>
+    </div>
+    <p><a href="index.html" class="back-btn">Quay lại danh sách bài tập</a></p>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

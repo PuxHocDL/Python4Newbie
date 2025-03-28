@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2: Kiểm tra số chẵn/lẻ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 2: Kiểm tra số chẵn/lẻ</h3>
+        <p>Viết hàm kiểm tra số chẵn/lẻ và in kết quả.</p>
+        <textarea id="code2" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample2')">Xem code mẫu</button>
+            <button onclick="showSample('alt1')">Cách làm 1</button>
+            <button onclick="showSample('alt2')">Cách làm 2</button>
+            <button onclick="showSample('alt3')">Cách làm 3</button>
+        </div>
+        
+        <!-- Original sample solution -->
+        <div id="sample2" class="sample-code">
+def is_even(n):
+    return n % 2 == 0
+n = int(input("Nhập một số: "))
+if is_even(n):
+    print("Chẵn")
+else:
+    print("Lẻ")
+        </div>
+        
+        <!-- Alternative approach 1: Without function -->
+        <div id="alt1" class="sample-code" style="display:none;">
+# Cách 1: Không sử dụng hàm
+n = int(input("Nhập một số: "))
+if n % 2 == 0:
+    print("Chẵn")
+else:
+    print("Lẻ")
+        </div>
+        
+        <!-- Alternative approach 2: Using bitwise AND operation -->
+        <div id="alt2" class="sample-code" style="display:none;">
+# Cách 2: Sử dụng toán tử bit (bitwise AND)
+def is_even(n):
+    return (n & 1) == 0  # Kiểm tra bit cuối cùng
+
+n = int(input("Nhập một số: "))
+print("Chẵn" if is_even(n) else "Lẻ")
+        </div>
+        
+        <!-- Alternative approach 3: Using lambda function -->
+        <div id="alt3" class="sample-code" style="display:none;">
+# Cách 3: Sử dụng hàm lambda và toán tử ba ngôi
+is_even = lambda x: x % 2 == 0
+n = int(input("Nhập một số: "))
+print("Chẵn" if is_even(n) else "Lẻ")
+        </div>
+    </div>
+    <p><a href="index.html" class="back-btn">Quay lại danh sách bài tập</a></p>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

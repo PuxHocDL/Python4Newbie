@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 16: Tạo bảng cửu chương</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 16: Tạo bảng cửu chương</h3>
+        <p>Viết chương trình in bảng cửu chương của một số người dùng nhập (từ 1 đến 10).</p>
+        <textarea id="code16" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample16')">Xem code mẫu</button>
+            <button onclick="showSample('alt16_1')">Cách làm 1</button>
+            <button onclick="showSample('alt16_2')">Cách làm 2</button>
+            <button onclick="showSample('alt16_3')">Cách làm 3</button>
+        </div>
+        <div id="sample16" class="sample-code">
+n = int(input("Nhập số để in bảng cửu chương: "))
+for i in range(1, 11):
+    print(f"{n} x {i} = {n * i}")
+        </div>
+        <div id="alt16_1" class="sample-code" style="display:none;">
+# Cách 1: Sử dụng vòng lặp while
+n = int(input("Nhập số để in bảng cửu chương: "))
+i = 1
+while i <= 10:
+    print(f"{n} x {i} = {n * i}")
+    i += 1
+        </div>
+        <div id="alt16_2" class="sample-code" style="display:none;">
+# Cách 2: Sử dụng list comprehension và join
+n = int(input("Nhập số để in bảng cửu chương: "))
+table = [f"{n} x {i} = {n * i}" for i in range(1, 11)]
+print("\n".join(table))
+        </div>
+        <div id="alt16_3" class="sample-code" style="display:none;">
+# Cách 3: Tạo một hàm và dùng map
+def multiply(num, multiplier):
+    return f"{num} x {multiplier} = {num * multiplier}"
+
+n = int(input("Nhập số để in bảng cửu chương: "))
+results = map(lambda i: multiply(n, i), range(1, 11))
+for result in results:
+    print(result)
+        </div>
+    </div>
+    <a href="index.html" class="back-btn">Quay lại danh sách bài tập</a>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

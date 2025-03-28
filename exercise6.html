@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6: Đếm ký tự</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 6: Đếm ký tự</h3>
+        <p>Đếm số ký tự không tính khoảng trắng trong chuỗi.</p>
+        <textarea id="code6" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample6')">Xem code mẫu</button>
+            <button onclick="showSample('alt6_1')">Cách làm 1</button>
+            <button onclick="showSample('alt6_2')">Cách làm 2</button>
+            <button onclick="showSample('alt6_3')">Cách làm 3</button>
+        </div>
+        <div id="sample6" class="sample-code">
+def count_chars(s):
+    return len(s.replace(" ", ""))
+s = input("Nhập chuỗi: ")
+print("Số ký tự:", count_chars(s))
+        </div>
+        <div id="alt6_1" class="sample-code" style="display:none;">
+# Cách 1: Sử dụng vòng lặp for
+s = input("Nhập chuỗi: ")
+count = 0
+for char in s:
+    if char != " ":
+        count += 1
+print("Số ký tự:", count)
+        </div>
+        <div id="alt6_2" class="sample-code" style="display:none;">
+# Cách 2: Sử dụng list comprehension
+s = input("Nhập chuỗi: ")
+count = sum(1 for char in s if char != " ")
+print("Số ký tự:", count)
+        </div>
+        <div id="alt6_3" class="sample-code" style="display:none;">
+# Cách 3: Sử dụng phương thức split() và join()
+s = input("Nhập chuỗi: ")
+no_spaces = "".join(s.split())
+print("Số ký tự:", len(no_spaces))
+        </div>
+    </div>
+    <p><a href="index.html" class="back-btn">Quay lại danh sách bài tập</a></p>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

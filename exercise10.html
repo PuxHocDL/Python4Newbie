@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 10: Tính diện tích hình tròn</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 10: Tính diện tích hình tròn</h3>
+        <p>Viết hàm tính diện tích hình tròn từ bán kính.</p>
+        <textarea id="code10" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample10')">Xem code mẫu</button>
+            <button onclick="showSample('alt10_1')">Cách làm 1</button>
+            <button onclick="showSample('alt10_2')">Cách làm 2</button>
+            <button onclick="showSample('alt10_3')">Cách làm 3</button>
+        </div>
+        <div id="sample10" class="sample-code">
+def circle_area(r):
+    return 3.14 * r * r
+r = float(input("Nhập bán kính: "))
+print(f"Diện tích hình tròn: {circle_area(r):.2f}")
+        </div>
+        <div id="alt10_1" class="sample-code" style="display:none;">
+# Cách 1: Sử dụng hằng số pi từ thư viện math
+import math
+
+def circle_area(r):
+    return math.pi * r ** 2
+
+r = float(input("Nhập bán kính: "))
+print(f"Diện tích hình tròn: {circle_area(r):.2f}")
+        </div>
+        <div id="alt10_2" class="sample-code" style="display:none;">
+# Cách 2: Sử dụng lambda function
+import math
+
+circle_area = lambda r: math.pi * r * r
+
+r = float(input("Nhập bán kính: "))
+print(f"Diện tích hình tròn: {circle_area(r):.2f}")
+        </div>
+        <div id="alt10_3" class="sample-code" style="display:none;">
+# Cách 3: Tính trực tiếp không dùng hàm
+import math
+
+r = float(input("Nhập bán kính: "))
+area = math.pi * r * r
+print(f"Diện tích hình tròn: {area:.2f}")
+        </div>
+    </div>
+    <p><a href="index.html" class="back-btn">Quay lại danh sách bài tập</a></p>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

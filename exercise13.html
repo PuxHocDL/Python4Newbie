@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 13: Kiểm tra chuỗi đối xứng</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 13: Kiểm tra chuỗi đối xứng</h3>
+        <p>Viết chương trình kiểm tra chuỗi người dùng nhập có phải chuỗi đối xứng không (ví dụ: "radar" là chuỗi đối xứng).</p>
+        <textarea id="code13" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample13')">Xem code mẫu</button>
+            <button onclick="showSample('alt13_1')">Cách làm 1</button>
+            <button onclick="showSample('alt13_2')">Cách làm 2</button>
+            <button onclick="showSample('alt13_3')">Cách làm 3</button>
+        </div>
+        <div id="sample13" class="sample-code">
+s = input("Nhập chuỗi: ")
+if s == s[::-1]:
+    print("Đây là chuỗi đối xứng")
+else:
+    print("Đây không phải chuỗi đối xứng")
+        </div>
+        <div id="alt13_1" class="sample-code" style="display:none;">
+# Cách 1: Sử dụng vòng lặp để so sánh từng ký tự
+s = input("Nhập chuỗi: ")
+is_palindrome = True
+
+for i in range(len(s) // 2):
+    if s[i] != s[len(s) - i - 1]:
+        is_palindrome = False
+        break
+
+if is_palindrome:
+    print("Đây là chuỗi đối xứng")
+else:
+    print("Đây không phải chuỗi đối xứng")
+        </div>
+        <div id="alt13_2" class="sample-code" style="display:none;">
+# Cách 2: Sử dụng hàm reversed()
+s = input("Nhập chuỗi: ")
+reversed_s = "".join(reversed(s))
+
+if s == reversed_s:
+    print("Đây là chuỗi đối xứng")
+else:
+    print("Đây không phải chuỗi đối xứng")
+        </div>
+        <div id="alt13_3" class="sample-code" style="display:none;">
+# Cách 3: Sử dụng hàm để kiểm tra
+def is_palindrome(s):
+    return s == s[::-1]
+
+s = input("Nhập chuỗi: ")
+if is_palindrome(s):
+    print("Đây là chuỗi đối xứng")
+else:
+    print("Đây không phải chuỗi đối xứng")
+        </div>
+    </div>
+    <a href="index.html" class="back-btn">Quay lại danh sách bài tập</a>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

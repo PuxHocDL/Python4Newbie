@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 18: Tính chu vi hình chữ nhật</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 18: Tính chu vi hình chữ nhật</h3>
+        <p>Viết hàm tính chu vi hình chữ nhật từ chiều dài và chiều rộng người dùng nhập.</p>
+        <textarea id="code18" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample18')">Xem code mẫu</button>
+            <button onclick="showSample('alt18_1')">Cách làm 1</button>
+            <button onclick="showSample('alt18_2')">Cách làm 2</button>
+            <button onclick="showSample('alt18_3')">Cách làm 3</button>
+        </div>
+        <div id="sample18" class="sample-code">
+def rectangle_perimeter(length, width):
+    return 2 * (length + width)
+length = float(input("Nhập chiều dài: "))
+width = float(input("Nhập chiều rộng: "))
+print("Chu vi hình chữ nhật:", rectangle_perimeter(length, width))
+        </div>
+        <div id="alt18_1" class="sample-code" style="display:none;">
+# Cách 1: Sử dụng lambda function
+rectangle_perimeter = lambda l, w: 2 * (l + w)
+
+length = float(input("Nhập chiều dài: "))
+width = float(input("Nhập chiều rộng: "))
+print("Chu vi hình chữ nhật:", rectangle_perimeter(length, width))
+        </div>
+        <div id="alt18_2" class="sample-code" style="display:none;">
+# Cách 2: Tính trực tiếp không dùng hàm
+length = float(input("Nhập chiều dài: "))
+width = float(input("Nhập chiều rộng: "))
+perimeter = 2 * (length + width)
+print("Chu vi hình chữ nhật:", perimeter)
+        </div>
+        <div id="alt18_3" class="sample-code" style="display:none;">
+# Cách 3: Tạo lớp Rectangle
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+    
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+
+length = float(input("Nhập chiều dài: "))
+width = float(input("Nhập chiều rộng: "))
+rect = Rectangle(length, width)
+print("Chu vi hình chữ nhật:", rect.perimeter())
+        </div>
+    </div>
+    <a href="index.html" class="back-btn">Quay lại danh sách bài tập</a>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

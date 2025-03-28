@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 14: Tính tổng số lẻ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 14: Tính tổng số lẻ</h3>
+        <p>Viết chương trình tính tổng các số lẻ từ 1 đến n (n do người dùng nhập).</p>
+        <textarea id="code14" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample14')">Xem code mẫu</button>
+            <button onclick="showSample('alt14_1')">Cách làm 1</button>
+            <button onclick="showSample('alt14_2')">Cách làm 2</button>
+            <button onclick="showSample('alt14_3')">Cách làm 3</button>
+        </div>
+        <div id="sample14" class="sample-code">
+n = int(input("Nhập n: "))
+total = 0
+for i in range(1, n + 1):
+    if i % 2 != 0:
+        total += i
+print(f"Tổng các số lẻ từ 1 đến {n} là:", total)
+        </div>
+        <div id="alt14_1" class="sample-code" style="display:none;">
+# Cách 1: Sử dụng range() với bước nhảy 2
+n = int(input("Nhập n: "))
+total = sum(range(1, n + 1, 2))
+print(f"Tổng các số lẻ từ 1 đến {n} là:", total)
+        </div>
+        <div id="alt14_2" class="sample-code" style="display:none;">
+# Cách 2: Sử dụng list comprehension
+n = int(input("Nhập n: "))
+odd_numbers = [i for i in range(1, n + 1) if i % 2 != 0]
+total = sum(odd_numbers)
+print(f"Tổng các số lẻ từ 1 đến {n} là:", total)
+        </div>
+        <div id="alt14_3" class="sample-code" style="display:none;">
+# Cách 3: Sử dụng công thức toán học
+# Tổng các số lẻ từ 1 đến 2k-1 là k^2
+n = int(input("Nhập n: "))
+k = (n + 1) // 2  # Số lượng số lẻ từ 1 đến n
+total = k * k
+print(f"Tổng các số lẻ từ 1 đến {n} là:", total)
+        </div>
+    </div>
+    <a href="index.html" class="back-btn">Quay lại danh sách bài tập</a>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>

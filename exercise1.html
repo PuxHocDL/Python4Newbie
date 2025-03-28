@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1: Tính tổng hai số</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bài tập Python cơ bản</h1>
+    <div class="exercise">
+        <h3>Bài 1: Tính tổng hai số</h3>
+        <p>Viết chương trình yêu cầu nhập hai số nguyên và in tổng của chúng.</p>
+        <textarea id="code1" placeholder="Nhập mã của bạn tại đây"></textarea>
+        <div class="solution-buttons">
+            <button onclick="showSample('sample1')">Xem code mẫu</button>
+            <button onclick="showSample('alt1')">Cách làm 1</button>
+            <button onclick="showSample('alt2')">Cách làm 2</button>
+            <button onclick="showSample('alt3')">Cách làm 3</button>
+        </div>
+        
+        <!-- Original sample solution -->
+        <div id="sample1" class="sample-code">
+a = int(input("Nhập số thứ nhất: "))
+b = int(input("Nhập số thứ hai: "))
+tong = a + b
+print("Tổng là:", tong)
+        </div>
+        
+        <!-- Alternative approach 1: Using function -->
+        <div id="alt1" class="sample-code" style="display:none;">
+# Cách 1: Sử dụng hàm
+def tinh_tong(a, b):
+    return a + b
+
+so_thu_nhat = int(input("Nhập số thứ nhất: "))
+so_thu_hai = int(input("Nhập số thứ hai: "))
+tong = tinh_tong(so_thu_nhat, so_thu_hai)
+print("Tổng là:", tong)
+        </div>
+        
+        <!-- Alternative approach 2: One-line solution -->
+        <div id="alt2" class="sample-code" style="display:none;">
+# Cách 2: Giải pháp ngắn gọn
+print("Tổng là:", int(input("Nhập số thứ nhất: ")) + int(input("Nhập số thứ hai: ")))
+        </div>
+        
+        <!-- Alternative approach 3: Using list to store numbers -->
+        <div id="alt3" class="sample-code" style="display:none;">
+# Cách 3: Sử dụng danh sách
+numbers = []
+numbers.append(int(input("Nhập số thứ nhất: ")))
+numbers.append(int(input("Nhập số thứ hai: ")))
+print("Tổng là:", sum(numbers))
+        </div>
+    </div>
+    <p><a href="index.html" class="back-btn">Quay lại danh sách bài tập</a></p>
+    <script>
+        function showSample(sampleId) {
+            var sampleDivs = document.querySelectorAll(".sample-code");
+            sampleDivs.forEach(function(div) {
+                div.style.display = "none";
+            });
+            
+            var sample = document.getElementById(sampleId);
+            sample.style.display = "block";
+        }
+    </script>
+</body>
+</html>
